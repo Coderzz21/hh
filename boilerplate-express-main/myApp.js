@@ -1,8 +1,10 @@
 var express = require('express');
 var app = express();
 
+// Serve the HTML file
 app.get('/', function(req, res) {
-  res.send('Hello Express');
+  res.sendFile(__dirname + '/views/index.html');
 });
 
 module.exports = app;
+
