@@ -5,19 +5,20 @@ var app = express();
 // Serve static assets from /public
 app.use('/public', express.static(__dirname + '/public'));
 
-// Serve the HTML file at root path
+// Serve HTML file at root path
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
 // Serve JSON at /json route
 app.get('/json', function(req, res) {
+  const messageStyle = process.env.MESSAGE_STYLE;  // Must be inside the route
   let message = 'Hello json';
-  
-  if (process.env.MESSAGE_STYLE === 'uppercase') {
+
+  if (messageStyle === 'uppercase') {
     message = message.toUpperCase();
   }
-  
+
   res.json({ message: message });
 });
 
