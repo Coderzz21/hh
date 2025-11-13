@@ -1,7 +1,7 @@
 let express = require('express');
 let app = express();
 
-console.log("Hello World");
+console.log("Hello Express");
 
 // Your other code here...
 
